@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>node-demo</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div>
+    <div id="list"></div>
+    <br>
+    <form action="/formPost" method="POST">
+      <label>First Name:
+        <input type="text" name="fname"> </label>
+      <br>
+      <label>Last Name:
+        <input type="text" name="lname"> </label>
+      <br>
+      <label>
+        <input type="submit" value="Submit"> </label>
+    </form>
+  </div>
+  <script>
+    axios.get('/newsList').then(function (res) {
+      let list = res.data
+      console.log(list)
+      document.getElementById("list").innerHTML = list.message
+    }).catch(function (error) {
+      console.log(error)
+    })
+
+  </script>
+</body>
+
+</html>
