@@ -9,7 +9,7 @@ app.set('port', process.env.port || 3000)
 
 // CORS跨域配置
 app.all('*', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*') // 这个表示任意域名都可以访问，这样写不能携带cookie了
+  res.header('Access-Control-Allow-Origin', '*') // 表示任意域名都可以访问，这样写不能携带cookie
   res.header(
     'Access-Control-Allow-Headers',
     'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild',
