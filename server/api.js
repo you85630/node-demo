@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
 })
 
 router.get('/newsList', function(req, res) {
-  let newsList = fs.readFile('./../public/newsList.json', function(err, data) {
+  fs.readFile('./../public/newsList.json', 'utf8', function(err, data) {
     if (err) {
       let errData = {
         code: '400',
