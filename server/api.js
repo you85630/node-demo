@@ -1,12 +1,8 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   res.send('home page')
-})
-
-router.get('/one', function(req, res) {
-  res.send('page one')
 })
 
 module.exports = router
