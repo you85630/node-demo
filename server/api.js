@@ -5,4 +5,8 @@ router.get('/', function(req, res) {
   res.send('home page')
 })
 
+router.get('/one', function(req, res) {
+  res.send('page one')
+})
+
 module.exports = router
