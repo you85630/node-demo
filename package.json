@@ -1,21 +1,11 @@
 {
-  "name": "demo1",
+  "name": "node-express",
   "version": "1.0.0",
-  "description": "",
+  "description": "node express demo",
+  "author": "You <you85630@foxmail.com>",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/you85630/node-demo.git"
-  },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/you85630/node-demo/issues"
-  },
-  "homepage": "https://github.com/you85630/node-demo#readme",
+  "private": true,
   "dependencies": {
     "express": "^4.16.2"
   }
