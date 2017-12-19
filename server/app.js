@@ -31,5 +31,5 @@ app.get('/', function(req, res) {
 })
 
 app.listen(app.get('port'), () => {
-  console.log('http://localhost:' + app.get('port'))
+  console.log('服务器开启：http://localhost:' + app.get('port'))
 })
