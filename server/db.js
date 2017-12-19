@@ -1,18 +1,24 @@
 const mongoose = require('mongoose')
-const db = mongoose.connect('mongodb://127.0.0.1:27017/nodeDemo')
-
-db.connection.on('error', error => {
-  console.log('数据库连接失败：' + error)
-})
-db.connection.on('open', () => {
-  console.log('数据库连接成功')
-})
+const Schema = mongoose.Schema
+const db = mongoose.connection
 
 const newsSchema = new mongoose.Schema({
-  media: String,
-  medium_title: String,
-  score: { type: Number, default: 0 },
-  id: { type: Number, default: 0 },
+  name: String,
+  age: { type: Number, default: 0 },
+  time: { type: Number, default: 0 },
+})
+
+//连接数据库
+mongoose.connect('mongodb://127.0.0.1:27017/nodeDemo', {
+  useMongoClient: true,
+})
+
+db.on('error', () => {
+  console.log('数据库连接出错' + error)
+})
+
+db.once('open', () => {
+  console.log('数据库已连接')
 })
 
 const Model = {

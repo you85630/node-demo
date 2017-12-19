@@ -1,8 +1,7 @@
 const express = require('express')
+const path = require('path')
 const api = require('./api')
 const app = express()
-
-app.use(api)
 
 // 端口设为3000端口
 app.set('port', process.env.port || 3000)
@@ -20,6 +19,15 @@ app.all('*', (req, res, next) => {
   } else {
     next()
   }
+})
+
+app.use(api)
+
+// 路径
+const resolve = file => path.resolve(__dirname, file)
+
+app.get('/', function(req, res) {
+  res.sendFile(resolve('./../index.html'))
 })
 
 app.listen(app.get('port'), () => {
