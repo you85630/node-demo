@@ -1,6 +1,6 @@
 const express = require('express')
-const app = express()
 const api = require('./api')
+const app = express()
 
 app.use(api)
 
@@ -23,6 +23,5 @@ app.all('*', (req, res, next) => {
 })
 
 app.listen(app.get('port'), () => {
-  console.log('服务器开启')
   console.log('http://localhost:' + app.get('port'))
 })
