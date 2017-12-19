@@ -6,23 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>node-demo</title>
-  <script src="https://unpkg.com/vue"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
-  <div id="app">
-    <p v-for="li in newlist">{{ li }} </p>
-  </div>
+  <div id="app">ok </div>
   <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        newlist: []
-      }
-    })
     axios.get('/newsList').then(function (res) {
       console.log(res.data)
+      document.getElementById('app').innerHTML = res.data[1].name
     }).catch(function (error) {
       console.log(error)
     })

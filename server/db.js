@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const db = mongoose.connection
 
 const newsSchema = new mongoose.Schema({
-  name: String,
+  name: { typs: String },
   age: { type: Number, default: 0 },
   time: { type: Number, default: 0 },
 })
