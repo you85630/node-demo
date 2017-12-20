@@ -31,6 +31,8 @@ router.post('/newsList', urlencodedParser, function(req, res) {
   db.newsList.create(inputList, err => {
     if (err) {
       res.send(err)
+    } else {
+      res.send(inputList)
     }
   })
 })
