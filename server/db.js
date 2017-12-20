@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
 const db = mongoose.connection
 
 const newsSchema = new mongoose.Schema({
@@ -14,7 +13,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/nodeDemo', {
 })
 
 db.on('error', () => {
-  console.log('数据库连接出错' + error)
+  console.log('数据库连接出错')
 })
 
 db.once('open', () => {
