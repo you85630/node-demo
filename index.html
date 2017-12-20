@@ -6,20 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>node-demo</title>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    .input-list label {
+      display: block;
+      margin-top: 10px;
+    }
 
-<body>
-  <div id="app">ok </div>
-  <script>
-    axios.get('/newsList').then(function (res) {
-      console.log(res.data)
-      document.getElementById('app').innerHTML = res.data[1].name
-    }).catch(function (error) {
-      console.log(error)
-    })
+  </style>
 
-  </script>
-</body>
+  <body>
+    <div class="list"> </div>
+    <div class="input-list">
+      <form action="/newsList" method="post">
+        <label>姓名：
+          <input type="text" name="label_name"> </label>
+        <label>年龄：
+          <input type="number" name="label_age"> </label>
+        <label>出生时间：
+          <input type="date" name="label_year"> </label>
+        <label>
+          <input type="submit"> </label>
+      </form>
+    </div>
+    <script>
+      $('.list').load("/newsList")
+
+    </script>
+  </body>
 
 </html>

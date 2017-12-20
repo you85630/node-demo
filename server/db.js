@@ -4,7 +4,7 @@ const db = mongoose.connection
 const newsSchema = new mongoose.Schema({
   name: String,
   age: Number,
-  time: Number,
+  year: Date,
 })
 
 //连接数据库
