@@ -32,7 +32,7 @@ router.post('/List', urlencodedParser, function(req, res) {
     if (err) {
       res.send(err)
     } else {
-      res.send()
+      res.send(inputList)
     }
   })
 })
