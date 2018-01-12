@@ -6,31 +6,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>node-demo</title>
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+  <script src="https://cdn.bootcss.com/axios/0.17.1/axios.js"></script>
   <style>
     .input-list label {
       display: block;
       margin-top: 10px;
     }
 
+    .list span {
+      color: #f00;
+      cursor: pointer;
+    }
+
   </style>
 
   <body>
-    <div class="list"> </div>
-    <div class="input-list">
-      <form action="/newsList" method="post">
-        <label>姓名：
-          <input type="text" name="label_name"> </label>
-        <label>年龄：
-          <input type="number" name="label_age"> </label>
-        <label>出生时间：
-          <input type="date" name="label_year"> </label>
-        <label>
-          <input type="submit"> </label>
-      </form>
+    <div id="app">
+      <div class="list">
+        <p v-for="li in list">姓名：{{li.name}} 年龄：{{li.age}} 时间：{{li.year}}</p>
+      </div>
+      <div class="input-list">
+        <form action="/List" method="post">
+          <label>姓名：
+            <input type="text" name="label_name"> </label>
+          <label>年龄：
+            <input type="number" name="label_age"> </label>
+          <label>出生时间：
+            <input type="date" name="label_year"> </label>
+          <label>
+            <input type="submit"> </label>
+        </form>
+      </div>
     </div>
     <script>
-      $('.list').load("/newsList")
+      const app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            list: []
+          }
+        },
+        created() {
+          axios.get('/List').then(
+            res => {
+              this.list = res.data
+            }
+          )
+        }
+      })
 
     </script>
   </body>

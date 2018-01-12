@@ -9,8 +9,8 @@ const urlencodedParser = bodyParser.urlencoded({
 })
 
 // 查询
-router.get('/newsList', (req, res) => {
-  db.newsList.find({}, (err, doc) => {
+router.get('/List', (req, res) => {
+  db.List.find({}, (err, doc) => {
     if (err) {
       res.send(err)
     } else {
@@ -20,7 +20,7 @@ router.get('/newsList', (req, res) => {
 })
 
 // 增加
-router.post('/newsList', urlencodedParser, function(req, res) {
+router.post('/List', urlencodedParser, function(req, res) {
   const inputList = [
     {
       name: req.body.label_name,
@@ -28,11 +28,11 @@ router.post('/newsList', urlencodedParser, function(req, res) {
       year: req.body.label_year,
     },
   ]
-  db.newsList.create(inputList, err => {
+  db.List.create(inputList, err => {
     if (err) {
       res.send(err)
     } else {
-      res.send(inputList)
+      res.send()
     }
   })
 })

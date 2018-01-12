@@ -21,7 +21,7 @@ db.once('open', () => {
 })
 
 const Model = {
-  newsList: mongoose.model('newsList', newsSchema),
+  List: mongoose.model('List', newsSchema),
 }
 
 module.exports = Model
